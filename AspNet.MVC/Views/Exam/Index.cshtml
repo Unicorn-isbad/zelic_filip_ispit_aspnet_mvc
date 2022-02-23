@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Popis autora";
+    var authors = ViewData["authors"] as List<Author>; 
+}
+<div class = "table-wrapper">
+    <table class="fl-table">
+        <tr class="table-header">
+            <th>Autor</th>
+            <th>Knjige</th>
+        </tr>
+        @foreach (var author in authors)
+        {
+            <tr>
+                <th>
+                    @author.Name
+                </th>
+                <td>
+                    <ul style="list-style-type:none">
+                    @foreach (var book in author.Books)
+                    {
+                        <li>
+                            @book.Title
+                        </li>
+                    }
+                    </ul>
+                </td>
+           </tr> 
+        }
+    </table>
+</div>
